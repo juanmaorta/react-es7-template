@@ -14,6 +14,9 @@ export default {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
+    root: [
+      path.resolve(__dirname, 'src')
+    ],
     // you can now require('file') instead of require('file.js')
     extensions: ['', '.js', '.jsx']
   },

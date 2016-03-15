@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
 // layout
-import Layout from './ui/Layout';
+import Layout from 'ui/Layout';
+
+import { Provider } from 'react-redux';
+import store from 'rx/reducers/all';
 
 // Needed for onTouchTap
 // Can go away when react 1.0 release
@@ -11,4 +14,7 @@ import Layout from './ui/Layout';
 // https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
 
-ReactDOM.render(<Layout />, document.getElementById('application'));
+ReactDOM.render(
+  <Provider store={store}>
+    <Layout />
+  </Provider>, document.getElementById('application'));
